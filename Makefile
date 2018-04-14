@@ -113,7 +113,7 @@ gpg-verify:
 
 docker-build: vendor
 	@echo "linux build... amd64"
-	CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -ldflags "-s -X main.Build=${VERSION} -X main.Revision=${REV} -X main.Branch=${BRANCH} -X main.OSArch=linux/amd64" -v -o ./bin/linux-amd64/${APPNAME} ${MAIN_PATH}
+	@./script/docker-build.sh linux-build
 
 linux-build: vendor
 	@echo "linux build... 386"
